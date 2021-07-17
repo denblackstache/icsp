@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'logger'
+require 'optionparser'
+require 'ostruct'
+require 'yaml'
+
+require 'os'
+require 'tty-prompt'
+
+require_relative '../config/config'
+require_relative '../config/environment'
+require_relative '../src/csp_option_parser'
+require_relative '../src/commands/base_command'
+require_relative '../src/shell'
+require_relative '../src/shell_result'
+
+require_relative '../src/commands/certificate/delete'
+require_relative '../src/commands/certificate/install'
+require_relative '../src/commands/certificate/list'
+require_relative '../src/commands/certificate/view'
+require_relative '../src/commands/container/check'
+require_relative '../src/commands/container/list'
+require_relative '../src/commands/hardware/list'
+require_relative '../src/commands/license/view'
+require_relative '../src/commands/license/set'
+require_relative '../src/commands/create_hash'
+require_relative '../src/commands/verify_hash'
+require_relative '../src/commands/encrypt_file'
+require_relative '../src/commands/decrypt_file'
+require_relative '../src/commands/create_signature'
+require_relative '../src/commands/verify_signature'
+
+# CryptoPro CSP
+module CSP
+  def self.to_camel_case(string)
+    string.to_s.split('_').map(&:capitalize).join
+  end
+
+  def self.run
+    parsed = ::CSP::Services::OptionParserService.new.parse
+    command_parts = %w[::CSP Commands]
+    command_parts << to_camel_case(parsed.command) if parsed.command
+    command_parts << to_camel_case(parsed.subcommand) if parsed.subcommand
+    command = Object.const_get(command_parts.join('::'))
+                    .new(config: config, options: parsed.options, arguments: parsed.arguments)
+    command.respond_to?(:print) ? command.print : command.execute
+  rescue StandardError => e
+    puts 'Application aborted with error:'
+    raise e
+  end
+
+  run
+end
