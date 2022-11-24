@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CSP
+module ICSP
   def self.config
     @config ||= Config.new
   end

@@ -2,11 +2,10 @@
 
 source 'https://rubygems.org'
 
-ruby '2.7.3'
+gemspec
 
-gem 'os', '~> 1.1'
-
-gem 'tty-prompt', '~> 0.23.1'
+gem 'rake', '~> 12.0'
+gem 'rspec', '~> 3.0'
 
 group :development, :test do
   gem 'rubocop', '~> 1.18', require: false
