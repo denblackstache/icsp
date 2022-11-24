@@ -16,9 +16,21 @@ See:
 Management commands:
 
 * certificate — Manage certificates
+  * list
+  * view
+  * install
+  * delete
+
 * container — Manage containers
+  * list
+  * check
+  
 * hardware — Manage hardware
+  * list — Review of the installed readers, generators of random numbers and media
+  
 * license — Manage licenses
+  * view — View license
+  * set — Set license
 
 CSP commands:
 
@@ -35,14 +47,21 @@ CSP commands:
 List all key containers
 
 ```bash
-./bin/icsp container list
+icsp container list
 ```
 
 Create a signature for the file
 
 ```bash
-./bin/icsp create_signature document.txt
+icsp create_signature document.txt
 ```
+
+## Configuration
+
+ICSP is configured by ENV variables
+
+* `CSP_PATH` allows to override default CryptoPro CSP path. Default is `/opt/cprocsp`.
+* `LOG_LEVEL` to debug your operations. Default is `warn`. 
 
 ## License
 
