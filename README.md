@@ -11,6 +11,12 @@ See:
 * https://www.cryptopro.ru/sites/default/files/products/cryptcp/cryptcp_5.0.x.pdf
 * https://www.cryptopro.ru/sites/default/files/docs/certmgr.pdf
 
+## Installation
+
+Execute
+
+    gem install icsp
+
 ## Usage
 
 Management commands:
