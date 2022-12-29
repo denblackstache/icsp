@@ -3,6 +3,8 @@
 An interactive CryptoPro CSP shell that tries to imitate its GUI counterpart on the Windows platform. 
 Built for macOS and Linux daily use by wrapping a set of CryptoPro CLI tools: cryptcp, certmgr, csptest, cpconfig, etc.
 
+[![Gem Version](https://badge.fury.io/rb/icsp.svg)](https://badge.fury.io/rb/icsp)
+
 The project goal is only to simplify my daily life with CryptoPro CSP on *nix systems.
 Not everything is polished. Feel free to submit a PR if you need to add extra commands/options or fix bugs.
 
