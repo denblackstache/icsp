@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'icsp'
   spec.version       = ICSP::VERSION
   spec.authors       = ['Denis Semenenko']
-  spec.email         = ['hypercoderx@gmail.com']
+  spec.email         = ['den@densemenenko.com']
 
   spec.summary       = 'An interactive CryptoPro CSP shell'
   spec.description   = 'An interactive CryptoPro CSP shell that tries to imitate its GUI counterpart on the Windows platform.
